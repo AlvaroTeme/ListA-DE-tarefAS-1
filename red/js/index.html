@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Lista de tarefas</h1>
+    <input type="text" id="novatarefa" placeholder="Digite uma nova tarefa" >
+    <button id="adicionar">Adicionar</button>
+    <ul id="listaTarefas"></ul>
+
+    <script>
+        document.getElementById("adicionar").addEventListener("click", function(){
+        
+        let inputTarefa= document.getElementById("novatarefa");
+        
+        let tardefatexto = inputTarefa.nodeValue.trim(); //retira space left
+        
+        if(tardefatexto === "") return
+        let Lista = document.getElementById("listaTarefas");
+
+        let item = document.getElementById("li");
+        item.textContent = tardefatexto;
+
+        let btnCocluir = document.createElement("button");
+        btnCocluir.textContent = "Concluir"
+        btnCocluir.addEventListener("click", function(){
+             item.classList.toggle("concluida");
+        })
+        
+        let btnRemover = document.createElement("button");
+        btnRemover.textContent= "Remover";
+        btnRemover. addEventListener9("clincl", function(){
+            Lista.removeChild(item);
+        })
+
+        item.appendChild (btnCocluir);
+        item.appendChild(btnRemover);
+        Lista.appendChild(item);
+
+        })
+    </script>
+</body>
+</html>
